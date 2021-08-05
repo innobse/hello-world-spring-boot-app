@@ -1,6 +1,7 @@
 package ru.bse71.learnup.spring.boot.hello.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 
 /**
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Service;
  * @since
  */
 @Service
+@Scope("prototype")
 public class SuperService {
 
     private Logger logger;
@@ -21,7 +23,7 @@ public class SuperService {
     }
 
     public void doWork() {
-        logger.log("I start work!");
+        logger.log("I start work! " + hashCode());
     }
 
 }

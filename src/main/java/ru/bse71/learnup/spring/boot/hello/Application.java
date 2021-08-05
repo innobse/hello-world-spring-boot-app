@@ -17,6 +17,8 @@ public class Application {
 
     public static void main(String[] args) {
         final ConfigurableApplicationContext ctx = SpringApplication.run(Application.class);
-        ctx.getBean(SuperService.class).doWork();
+        for (int i = 0; i < 3; i++) {
+            ctx.getBean(SuperService.class).doWork();
+        }
     }
 }
