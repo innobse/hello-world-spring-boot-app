@@ -1,5 +1,7 @@
 package ru.bse71.learnup.spring.boot.hello.services;
 
+import org.springframework.stereotype.Component;
+
 /**
  * Description
  *
@@ -7,6 +9,7 @@ package ru.bse71.learnup.spring.boot.hello.services;
  * Created on 05.08.2021
  * @since
  */
+@Component
 public class Logger {
 
     public void log(Object o) {

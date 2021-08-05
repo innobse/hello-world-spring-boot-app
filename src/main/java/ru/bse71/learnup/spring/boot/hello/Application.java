@@ -2,6 +2,8 @@ package ru.bse71.learnup.spring.boot.hello;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import ru.bse71.learnup.spring.boot.hello.services.SuperService;
 
 /**
  * Description
@@ -14,6 +16,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class);
+        final ConfigurableApplicationContext ctx = SpringApplication.run(Application.class);
+        ctx.getBean(SuperService.class).doWork();
     }
 }
