@@ -1,0 +1,3 @@
+my-config:
+  super-param: 4
+  mega-param: "four"

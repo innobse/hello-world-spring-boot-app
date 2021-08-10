@@ -1,0 +1,3 @@
+logging:
+  config:
+    ru.bse71: INFO

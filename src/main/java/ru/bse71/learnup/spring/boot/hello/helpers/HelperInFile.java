@@ -1,8 +1,7 @@
 package ru.bse71.learnup.spring.boot.hello.helpers;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import ru.bse71.learnup.spring.boot.hello.annotations.ConsoleWorker;
-import ru.bse71.learnup.spring.boot.hello.annotations.FileWorker;
 import ru.bse71.learnup.spring.boot.hello.services.Helper;
 
 /**
@@ -13,7 +12,7 @@ import ru.bse71.learnup.spring.boot.hello.services.Helper;
  * @since
  */
 @Component
-@FileWorker
+@Profile("file")
 public class HelperInFile extends Helper {
 
     public HelperInFile() {

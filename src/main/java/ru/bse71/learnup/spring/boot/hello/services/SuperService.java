@@ -1,10 +1,8 @@
 package ru.bse71.learnup.spring.boot.hello.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
-import ru.bse71.learnup.spring.boot.hello.annotations.ConsoleWorker;
-import ru.bse71.learnup.spring.boot.hello.annotations.FileWorker;
+import ru.bse71.learnup.spring.boot.hello.config.Properties;
 
 /**
  * Description
@@ -20,9 +18,10 @@ public class SuperService {
     private Helper helper;
 
     @Autowired
-    public SuperService(@ConsoleWorker Logger logger, @ConsoleWorker Helper helper) {
+    public SuperService(Logger logger, Helper helper, Properties properties) {
         this.logger = logger;
         this.helper = helper;
+        logger.log("SuperService created. Properties: " + properties);
     }
 
     public void doWork() {

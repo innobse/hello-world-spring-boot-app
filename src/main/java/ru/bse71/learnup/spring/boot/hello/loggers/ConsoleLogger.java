@@ -1,7 +1,7 @@
 package ru.bse71.learnup.spring.boot.hello.loggers;
 
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
-import ru.bse71.learnup.spring.boot.hello.annotations.ConsoleWorker;
 import ru.bse71.learnup.spring.boot.hello.services.Logger;
 
 /**
@@ -12,7 +12,7 @@ import ru.bse71.learnup.spring.boot.hello.services.Logger;
  * @since
  */
 @Component
-@ConsoleWorker
+@Profile("console")
 public class ConsoleLogger extends Logger {
 
     public void log(Object o) {
