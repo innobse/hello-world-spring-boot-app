@@ -2,6 +2,10 @@ package ru.bse71.learnup.spring.boot.hello;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.Bean;
+import ru.bse71.learnup.spring.boot.hello.aspets.Logger;
+import ru.bse71.learnup.spring.boot.hello.services.SuperService;
 
 /**
  * Description
@@ -10,10 +14,26 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * Created on 05.08.2021
  * @since
  */
-@SpringBootApplication(scanBasePackages = {"ru.bse71.learnup.spring.boot.hello.services"})
+@SpringBootApplication
 public class Application {
 
     public static void main(String[] args) {
-        SpringApplication.run(Application.class);
+        final ConfigurableApplicationContext ctx = SpringApplication.run(Application.class);
+        final SuperService service = ctx.getBean(SuperService.class);
+        service.doWork();
+//        ctx.registerShutdownHook();
+
     }
+
+    @Bean
+    public SuperService superService() {
+        return new SuperService();
+    }
+
+    @Bean
+    public Logger logger() {
+        return new Logger();
+    }
+
+
 }

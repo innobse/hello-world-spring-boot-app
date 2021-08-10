@@ -1,5 +1,7 @@
 package ru.bse71.learnup.spring.boot.hello.services;
 
+import ru.bse71.learnup.spring.boot.hello.annotations.Loggable;
+
 /**
  * Description
  *
@@ -9,14 +11,16 @@ package ru.bse71.learnup.spring.boot.hello.services;
  */
 public class SuperService {
 
-    private Logger logger;
+    private static final int WORK_TIME = 3000;
 
-    public SuperService(Logger logger) {
-        this.logger = logger;
-    }
-
+    @Loggable
     public void doWork() {
-        logger.log("I start work!");
+        try {
+            Thread.sleep(WORK_TIME);
+//            throw new NullPointerException();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
 }
