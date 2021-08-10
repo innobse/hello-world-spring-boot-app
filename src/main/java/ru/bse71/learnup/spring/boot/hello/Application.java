@@ -12,7 +12,7 @@ import ru.bse71.learnup.spring.boot.hello.services.SuperService;
  * Created on 05.08.2021
  * @since
  */
-@SpringBootApplication(scanBasePackages = {"ru.bse71.learnup.spring.boot.hello.services"})
+@SpringBootApplication(scanBasePackages = {"ru.bse71.learnup.spring.boot.hello"})
 public class Application {
 
     public static void main(String[] args) {

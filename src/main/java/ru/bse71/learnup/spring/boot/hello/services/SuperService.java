@@ -1,7 +1,10 @@
 package ru.bse71.learnup.spring.boot.hello.services;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
+import ru.bse71.learnup.spring.boot.hello.annotations.ConsoleWorker;
+import ru.bse71.learnup.spring.boot.hello.annotations.FileWorker;
 
 /**
  * Description
@@ -14,14 +17,17 @@ import org.springframework.stereotype.Service;
 public class SuperService {
 
     private Logger logger;
+    private Helper helper;
 
     @Autowired
-    public SuperService(Logger logger) {
+    public SuperService(@ConsoleWorker Logger logger, @ConsoleWorker Helper helper) {
         this.logger = logger;
+        this.helper = helper;
     }
 
     public void doWork() {
         logger.log("I start work!");
+        helper.help();
     }
 
 }
